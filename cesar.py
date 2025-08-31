@@ -1,24 +1,22 @@
-def caesar_cipher(text: str, shift: int) -> str:
+def caesar_cipher(text, shift):
     result = ""
-
     for char in text:
-        # Si es mayúscula
-        if char.isupper():
-            result += chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
-        # Si es minúscula
-        elif char.islower():
-            result += chr((ord(char) - ord('a') + shift) % 26 + ord('a'))
+        if char.isalpha():
+            # Para letras mayúsculas
+            if char.isupper():
+                result += chr((ord(char) - 65 + shift) % 26 + 65)
+            # Para letras minúsculas
+            else:
+                result += chr((ord(char) - 97 + shift) % 26 + 97)
         else:
-            # Dejar otros caracteres tal cual (espacios, números, signos)
+            # Si no es letra (espacios, números, símbolos) lo dejamos igual
             result += char
-
     return result
 
 
-# Ejemplo de uso
 if __name__ == "__main__":
     texto = input("Ingrese el texto a cifrar: ")
-    corrimiento = int(input("Ingrese el corrimiento César: "))
+    corrimiento = int(input("Ingrese el corrimiento (número entero): "))
     
-    cifrado = caesar_cipher(texto, corrimiento)
-    print("Texto cifrado:", cifrado)
+    texto_cifrado = caesar_cipher(texto, corrimiento)
+    print("\nTexto cifrado:", texto_cifrado)
