@@ -6,12 +6,7 @@ PADDING = bytes(range(0x20, 0x38))  # 24 bytes
 PADDING_FULL = (PADDING * 2)[:40]   # 40 bytes exactos
 
 def build_payload_48(char: str) -> bytes:
-    """
-    Construye payload ICMP de 48 bytes:
-    - Byte 0 = carácter del mensaje
-    - Bytes 1..7 = 0x00
-    - Bytes 8..47 = patrón 0x20..0x37 repetido
-    """
+    
     msg_part = char.encode() + b"\x00" * 7
     payload = msg_part + PADDING_FULL
     assert len(payload) == 48
