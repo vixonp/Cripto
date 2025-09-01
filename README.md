@@ -43,12 +43,13 @@ Este proyecto consiste en varios scripts de Python para tareas criptográficas y
 
 ## Estructura del proyecto
 
+```bash
 .
 ├── MitM.py
 ├── README.md
-├── pycache/
-│ ├── cesar.cpython-312.pyc
-│ └── pingp3.cpython-312.pyc
+├── __pycache__/
+│   ├── cesar.cpython-312.pyc
+│   └── pingp3.cpython-312.pyc
 ├── captura1.pcapng
 ├── captura2.pcapng
 ├── cesar.py
