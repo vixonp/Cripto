@@ -4,7 +4,8 @@ FROM ubuntu:16.10
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Instalar OpenSSH Client y herramientas de red
-RUN apt-get update && \
+RUN sed -i -re 's/([a-z]{2}\.)?archive.ubuntu.com|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list && \
+    apt-get update && \
     apt-get install -y \
     openssh-client \
     tcpdump \
